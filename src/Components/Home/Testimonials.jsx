@@ -63,7 +63,7 @@ const Testimonials = () => {
                 <FaStar className="text-yellow-500" />
                 <FaStar className="text-yellow-500" />
               </div>
-              <p className="tex">
+              <p className="text">
                 This website is an absolute gem for any gamer! The reviews are in-depth, well-written, and genuinely helpful in deciding which games
                 are worth my time.
               </p>
@@ -81,7 +81,7 @@ const Testimonials = () => {
                 <FaStar className="text-yellow-500" />
                 <FaStar className="text-yellow-500" />
               </div>
-              <p className="tex">
+              <p className="text">
                 This website is an absolute gem for any gamer! The reviews are in-depth, well-written, and genuinely helpful in deciding which games
                 are worth my time.
               </p>
