@@ -1,0 +1,13 @@
+@import url('../../index.css');
+
+header .navbar ul a {
+  color: black;
+  font-size: clamp(14px, calc((16 - 14) * ((100vw - 360px) / (1200 - 360)) + 14px), 16px);
+}
+
+header .navbar ul a.active,
+header .navbar ul a:hover {
+  background-color: transparent !important;
+  text-decoration: underline;
+  color: white !important;
+}

@@ -1,0 +1,15 @@
+.home-hero.swiper-pagination {
+  bottom: 20px !important;
+}
+
+.testimonials.swiper-pagination {
+  top: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgb(255, 255, 255, 0.9) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgb(255, 255, 255) !important;
+}

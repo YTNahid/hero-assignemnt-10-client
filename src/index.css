@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+/* Roots
+========================================================================== */
+:root {
+  --content-width: 1140px;
+  --gap: 20px;
+  --column-padding: 10px;
+
+  --primary-color: #ffffff;
+  --heading-color: #131313;
+  --text-color: #131313;
+  --border-color: #dddddd;
+  --bg-color: #bfafa0;
+  --accent-color: #bfafa0;
+
+  --primary-font: 'Sora', sans-serif;
+}
+
+/* Global CSS Style
+========================================================================== */
+* {
+  transition: all 0.2s;
+  font-family: var(--primary-font);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/*
+* Sections and columns Structure ---------
+*/
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: var(--content-width);
+}
+.row-full {
+  max-width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--content-width);
+  gap: var(--gap);
+  padding: var(--column-padding);
+}
+
+.section-gap {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+/*
+* Text Styles ---------
+*/
+.heading {
+  color: var(--heading-color);
+  line-height: 1.4em;
+  margin: 0;
+  font-weight: 700;
+}
+
+h1.heading {
+  font-size: clamp(30px, calc((45 - 30) * ((100vw - 360px) / (1140 - 360)) + 30px), 45px);
+}
+
+h2.heading {
+  font-size: clamp(25px, calc((35 - 25) * ((100vw - 360px) / (1140 - 360)) + 25px), 35px);
+}
+
+h3.heading {
+  font-size: clamp(20px, calc((24 - 20) * ((100vw - 360px) / (1140 - 360)) + 20px), 24px);
+  line-height: 1.5em;
+}
+
+h4.heading {
+  font-size: clamp(17px, calc((20 - 17) * ((100vw - 360px) / (1140 - 360)) + 17px), 20px);
+  line-height: 1.5em;
+}
+
+h5.heading {
+  font-size: clamp(16px, calc((18 - 16) * ((100vw - 360px) / (1140 - 360)) + 16px), 18px);
+  line-height: 1.5em;
+}
+
+h6.heading {
+  font-size: clamp(14px, calc((16 - 14) * ((100vw - 360px) / (1140 - 360)) + 14px), 16px);
+  line-height: 1.5em;
+}
+
+.text {
+  color: var(--text-color);
+  font-size: clamp(14px, calc((16 - 14) * ((100vw - 360px) / (1200 - 360)) + 14px), 16px);
+  line-height: 1.6em;
+  margin: 0;
+}
+.text-gap {
+  margin-bottom: 15px;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+}
+
+/* Buttons */
+.button {
+  background: var(--accent-color);
+  color: white;
+  font-size: clamp(14px, calc((16 - 14) * ((100vw - 360px) / (1200 - 360)) + 14px), 16px);
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 13px 32px;
+  cursor: pointer;
+}
+.button:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive------------- */
+
+@media only screen and (max-width: 1024px) {
+  .section-gap {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .row:not(.exclude) {
+    flex-direction: column;
+  }
+
+  .section-gap {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+/* Custom CSS Style
+========================================================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
