@@ -3,7 +3,7 @@
 Welcome to **AlphaReviews**, your ultimate destination for honest and insightful game reviews. Whether you're looking for the latest AAA blockbuster or a hidden indie gem, AlphaReviews helps you discover your next gaming adventure with ease.
 
 ## 🚀 Live Demo
-[Live Site Link](https://your-live-link.com)
+[Live Site Link](https://simple-firebase-3e1e3.web.app/)
 
 ## 📖 Description
 AlphaReviews is a full-stack web application built with MERN, designed for gamers to share and explore game reviews. Users can browse highest-rated games, read detailed reviews, and contribute their own opinions to the community. The platform features a secure authentication system, allowing users to manage their personal reviews and keep track of games they want to play via a dedicated watchlist.
