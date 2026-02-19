@@ -1,13 +1,13 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css/bundle';
-import './swiper.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css/bundle";
+import "./swiper.css";
 
-import { FaStar } from 'react-icons/fa';
+import { FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
   return (
-    <div className="bg-accent-color section-gap testimonials">
+    <div className="bg-accent-color dark:bg-bg-dark2 section-gap testimonials">
       <div className="row mx-auto mb-8">
         <div className="column">
           <h2 className="heading text-center text-white">Testimonials</h2>
@@ -18,7 +18,7 @@ const Testimonials = () => {
         slidesPerView={3}
         loop={true}
         pagination={{
-          el: '.swiper-custom-pagination',
+          el: ".swiper-custom-pagination",
           clickable: true,
         }}
         autoplay={{
@@ -48,7 +48,10 @@ const Testimonials = () => {
                 <FaStar className="text-yellow-500" />
                 <FaStar className="text-yellow-500" />
               </div>
-              <p className="text">This platform has completely changed how I choose games. The reviews are spot-on, and the community is amazing!</p>
+              <p className="text">
+                This platform has completely changed how I choose games. The
+                reviews are spot-on, and the community is amazing!
+              </p>
               <h6 className="heading">- Alex</h6>
             </div>
           </div>
@@ -64,8 +67,9 @@ const Testimonials = () => {
                 <FaStar className="text-yellow-500" />
               </div>
               <p className="text">
-                This website is an absolute gem for any gamer! The reviews are in-depth, well-written, and genuinely helpful in deciding which games
-                are worth my time.
+                This website is an absolute gem for any gamer! The reviews are
+                in-depth, well-written, and genuinely helpful in deciding which
+                games are worth my time.
               </p>
               <h6 className="heading">- Stank</h6>
             </div>
@@ -82,8 +86,9 @@ const Testimonials = () => {
                 <FaStar className="text-yellow-500" />
               </div>
               <p className="text">
-                This website is an absolute gem for any gamer! The reviews are in-depth, well-written, and genuinely helpful in deciding which games
-                are worth my time.
+                This website is an absolute gem for any gamer! The reviews are
+                in-depth, well-written, and genuinely helpful in deciding which
+                games are worth my time.
               </p>
               <h6 className="heading">- M Bond</h6>
             </div>
@@ -100,8 +105,9 @@ const Testimonials = () => {
                 <FaStar className="text-yellow-500" />
               </div>
               <p className="text">
-                This website is an absolute gem for any gamer! The reviews are in-depth, well-written, and genuinely helpful in deciding which games
-                are worth my time.
+                This website is an absolute gem for any gamer! The reviews are
+                in-depth, well-written, and genuinely helpful in deciding which
+                games are worth my time.
               </p>
               <h6 className="heading">- Jack</h6>
             </div>

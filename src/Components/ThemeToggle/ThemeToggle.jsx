@@ -22,7 +22,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <label className="swap swap-rotate fixed z-50 bottom-5 right-5 shadow rounded-full bg-white p-2">
+    <label className="swap swap-rotate fixed z-50 bottom-5 right-5 shadow-xl rounded-full bg-white dark:bg-bg-dark2 p-2">
       {/* this hidden checkbox controls the state */}
       <input
         type="checkbox"
@@ -42,7 +42,7 @@ export default function ThemeToggle() {
 
       {/* moon icon */}
       <svg
-        className="swap-on h-10 w-10 fill-current"
+        className="swap-on h-10 w-10 fill-current text-white"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
