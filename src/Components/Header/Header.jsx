@@ -60,7 +60,7 @@ const Header = () => {
 
   return (
     <header
-      className={`section sticky top-0 shadow-md bg-primary-color dark:bg-black z-50 gap-0 py-2`}
+      className={`section sticky top-0 shadow-2xl bg-primary-color dark:bg-bg-dark2 z-50 gap-0 py-2`}
     >
       <div className="row exclude navbar">
         <div className="navbar-start">
@@ -92,7 +92,10 @@ const Header = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to={"/"} className="text-black font-bold text-xl pl-0">
+          <Link
+            to={"/"}
+            className="text-black dark:text-white font-bold text-xl pl-0"
+          >
             AlphaReviews
           </Link>
         </div>
@@ -112,7 +115,7 @@ const Header = () => {
               <Tooltip id="displayName"></Tooltip>
               <button
                 onClick={handleSignOut}
-                className="text-2xl font-bold"
+                className="text-2xl font-bold dark:text-white"
                 data-tooltip-id="logoutTip"
                 data-tooltip-content="Logout"
               >
