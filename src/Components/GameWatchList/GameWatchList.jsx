@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
-import axios from 'axios';
-import { MdDeleteForever } from 'react-icons/md';
-import { toast } from 'react-toastify';
-import { Tooltip } from 'react-tooltip';
-import { BsEyeFill } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthContext";
+import axios from "axios";
+import { MdDeleteForever } from "react-icons/md";
+import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
+import { BsEyeFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const GameWatchList = () => {
   const serverURL = import.meta.env.VITE_ServerURL;
@@ -26,17 +26,21 @@ const GameWatchList = () => {
         const watchlistIds = userResponse.data?.watchlist || [];
 
         if (watchlistIds.length > 0) {
-          const reviewPromises = watchlistIds.map((id) => axios.get(`${serverURL}/reviews/${id}`).then((res) => res.data));
+          const reviewPromises = watchlistIds.map((id) =>
+            axios.get(`${serverURL}/reviews/${id}`).then((res) => res.data),
+          );
           const reviews = await Promise.all(reviewPromises);
 
           // Only set the watchlist if reviews are not empty
-          const validReviews = reviews.filter((review) => review && Object.keys(review).length > 0);
+          const validReviews = reviews.filter(
+            (review) => review && Object.keys(review).length > 0,
+          );
           setWatchlist(validReviews);
         } else {
           setWatchlist([]);
         }
       } catch (error) {
-        console.error('Failed to fetch watchlist:', error);
+        console.error("Failed to fetch watchlist:", error);
         setWatchlist([]);
       } finally {
         setLoading(false);
@@ -46,7 +50,7 @@ const GameWatchList = () => {
     fetchWatchlist();
   }, [userEmail, serverURL]);
 
-  console.log(watchlist);
+  // console.log(watchlist);
 
   const handleRemoveFromWatchlist = async (reviewId) => {
     try {
@@ -55,20 +59,22 @@ const GameWatchList = () => {
         { email: userEmail, reviewId },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (response.status === 200) {
-        toast.success('Removed from watchlist!');
-        setWatchlist((prevWatchlist) => prevWatchlist.filter((review) => review._id !== reviewId));
+        toast.success("Removed from watchlist!");
+        setWatchlist((prevWatchlist) =>
+          prevWatchlist.filter((review) => review._id !== reviewId),
+        );
       } else {
-        toast.error('Failed to remove from watchlist.');
+        toast.error("Failed to remove from watchlist.");
       }
     } catch (error) {
-      console.error('Error removing from watchlist:', error);
-      toast.error('Something went wrong.');
+      console.error("Error removing from watchlist:", error);
+      toast.error("Something went wrong.");
     }
   };
 
@@ -106,12 +112,24 @@ const GameWatchList = () => {
             <tbody>
               {watchlist.map((review, index) => (
                 <tr key={review._id} className="hover:bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 text-center">{index + 1}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{review.title}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{review.genre}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{review.name}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{review.rating}/5</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{review.year}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    {index + 1}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    {review.title}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    {review.genre}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    {review.name}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    {review.rating}/5
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    {review.year}
+                  </td>
                   <td className="border border-gray-300 px-4 py-2 text-center">
                     <div className="flex justify-center items-center gap-4">
                       <BsEyeFill
