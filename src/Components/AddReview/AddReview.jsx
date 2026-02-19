@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
-import axios from 'axios';
-import Swal from 'sweetalert2';
-import { toast } from 'react-toastify';
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
@@ -24,7 +24,7 @@ const AddReview = () => {
 
     const photoRegex = /\.(jpeg|jpg|png|webp|avif)$/i;
     if (!photoRegex.test(coverImage)) {
-      toast.error('Please provide a valid Photo URL (jpg/jpeg/png/webp/avif)');
+      toast.error("Please provide a valid Photo URL (jpg/jpeg/png/webp/avif)");
       return;
     }
 
@@ -43,41 +43,41 @@ const AddReview = () => {
     try {
       await axios.post(`${serverURL}/reviews/addReview`, reviewData, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
       // console.log('🚀 ~ handleSubmit ~ response:', response.data);
       Swal.fire({
-        title: 'Success',
-        text: 'Review Added Successfully!',
-        icon: 'success',
+        title: "Success",
+        text: "Review Added Successfully!",
+        icon: "success",
       }).then(() => {
         form.reset();
         form.email.value = user.email;
         form.name.value = user.displayName;
       });
     } catch (error) {
-      console.error('Error submitting review:', error);
+      console.error("Error submitting review:", error);
       Swal.fire({
-        title: 'Error',
-        text: 'Something went wrong',
-        icon: 'error',
+        title: "Error",
+        text: "Something went wrong",
+        icon: "error",
       });
     }
   };
 
   return (
-    <section className="section py-[30px] md:py-[45px] lg:py-[60px]">
+    <section className="section py-[30px] md:py-[45px] lg:py-[60px] dark:bg-bg-dark1">
       <div className="row">
         <div className="column ">
           <h2 className="heading text-center">Add a Review</h2>
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-0 bg-bg-color shadow-2xl rounded-lg p-4 md:p-10 w-full"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-0 bg-bg-color dark:bg-bg-dark2 shadow-2xl rounded-lg p-4 md:p-10 w-full"
           >
             {/* Game Cover Image */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Game Cover Image (URL)</span>
+              <span className="font-medium text-text-color dark:text-white">Game Cover Image (URL)</span>
               <input
                 type="text"
                 name="coverImage"
@@ -89,7 +89,7 @@ const AddReview = () => {
 
             {/* Game Title */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Game Title</span>
+              <span className="font-medium text-text-color dark:text-white">Game Title</span>
               <input
                 type="text"
                 name="title"
@@ -101,7 +101,7 @@ const AddReview = () => {
 
             {/* Rating */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Rating (1-5)</span>
+              <span className="font-medium text-text-color dark:text-white">Rating (1-5)</span>
               <input
                 type="number"
                 name="rating"
@@ -115,7 +115,7 @@ const AddReview = () => {
 
             {/* Publishing Year */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Publishing Year</span>
+              <span className="font-medium text-text-color dark:text-white">Publishing Year</span>
               <input
                 type="number"
                 name="year"
@@ -127,7 +127,7 @@ const AddReview = () => {
 
             {/* Genres */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Genre</span>
+              <span className="font-medium text-text-color dark:text-white">Genre</span>
               <select
                 name="genre"
                 className="p-3 rounded-lg bg-white border border-border-color focus:outline-none focus:ring-2 ring-primary-color text-text-color"
@@ -146,7 +146,7 @@ const AddReview = () => {
 
             {/* User Email */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">User Email</span>
+              <span className="font-medium text-text-color dark:text-white">User Email</span>
               <input
                 type="email"
                 name="email"
@@ -158,7 +158,7 @@ const AddReview = () => {
 
             {/* User Name */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">User Name</span>
+              <span className="font-medium text-text-color dark:text-white">User Name</span>
               <input
                 type="text"
                 name="name"
@@ -170,7 +170,7 @@ const AddReview = () => {
 
             {/* Review Description */}
             <label className="col-span-full flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Review Description</span>
+              <span className="font-medium text-text-color dark:text-white">Review Description</span>
               <textarea
                 name="description"
                 placeholder="Write your detailed review here..."

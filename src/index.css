@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
 
 /* Roots
 ========================================================================== */
@@ -14,7 +14,7 @@
   --bg-color: #bfafa0;
   --accent-color: #bfafa0;
 
-  --primary-font: 'Sora', sans-serif;
+  --primary-font: "Sora", sans-serif;
 }
 
 /* Dark Mode */
@@ -22,7 +22,7 @@
   --heading-color: #ffffff;
   --text-color: #8b949e;
   --border-color: #dddddd;
-  --bg-color: #161B22;
+  --bg-color: #161b22;
 }
 
 /* Global CSS Style
@@ -37,6 +37,10 @@
 body {
   margin: 0;
   overflow-x: hidden;
+}
+
+.dark body {
+  background: black;
 }
 
 /*

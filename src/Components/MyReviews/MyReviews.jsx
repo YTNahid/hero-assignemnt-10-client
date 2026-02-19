@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
-import axios from 'axios';
-import { MdDeleteForever } from 'react-icons/md';
-import { FaEdit } from 'react-icons/fa';
-import { Tooltip } from 'react-tooltip';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthContext";
+import axios from "axios";
+import { MdDeleteForever } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
+import { Link } from "react-router-dom";
 
 const MyReviews = () => {
   const serverURL = import.meta.env.VITE_ServerURL;
@@ -23,7 +23,7 @@ const MyReviews = () => {
         const response = await axios.get(`${serverURL}/reviews/byEmail/${userEmail}`);
         setReviews(response.data || []);
       } catch (error) {
-        console.error('Failed to fetch reviews:', error);
+        console.error("Failed to fetch reviews:", error);
         setReviews([]);
       } finally {
         setLoading(false);
@@ -34,7 +34,7 @@ const MyReviews = () => {
   }, [userEmail, serverURL]);
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this review?');
+    const confirmDelete = window.confirm("Are you sure you want to delete this review?");
     if (confirmDelete) {
       axios
         .delete(`${serverURL}/reviews/${id}`)
@@ -42,18 +42,18 @@ const MyReviews = () => {
           if (response.status === 200) {
             setReviews((prevReviews) => prevReviews.filter((review) => review._id !== id));
           } else {
-            console.error('Failed to delete review:', response.data);
+            console.error("Failed to delete review:", response.data);
           }
         })
         .catch((error) => {
-          console.error('Failed to delete review:', error);
+          console.error("Failed to delete review:", error);
         });
     }
   };
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[60vh]">
+      <div className="flex justify-center items-center min-h-[60vh] dark:bg-bg-dark1">
         <span className="loading loading-dots loading-lg"></span>
       </div>
     );
@@ -61,7 +61,7 @@ const MyReviews = () => {
 
   return (
     <>
-      <section className="section section-gap min-h-[60vh]">
+      <section className="section section-gap min-h-[60vh] dark:bg-bg-dark1">
         <div className="row">
           <div className="column">
             <h2 className="heading text-center">My Reviews</h2>
@@ -74,7 +74,10 @@ const MyReviews = () => {
             {reviews.map((review) => {
               const { _id, coverImage, title, rating, genre, name } = review;
               return (
-                <div key={_id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                <div
+                  key={_id}
+                  className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                >
                   <img src={coverImage} alt={title} className="w-full h-48 object-cover" />
                   <div className="p-4">
                     <h3 className="text-xl font-semibold">{title}</h3>
@@ -89,7 +92,11 @@ const MyReviews = () => {
                     </div>
                     <div className="flex justify-center gap-5 mt-3">
                       <Link to={`/myReviews/edit/${_id}`} className="text-[25px] cursor-pointer text-blue-500">
-                        <FaEdit className="text-[25px] cursor-pointer text-black" data-tooltip-id="delete" data-tooltip-content="Edit Review" />
+                        <FaEdit
+                          className="text-[25px] cursor-pointer text-black"
+                          data-tooltip-id="delete"
+                          data-tooltip-content="Edit Review"
+                        />
                       </Link>
                       <MdDeleteForever
                         className="text-[25px] cursor-pointer text-red-500"

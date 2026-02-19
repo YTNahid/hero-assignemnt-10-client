@@ -65,11 +65,7 @@ const Header = () => {
       <div className="row exclude navbar">
         <div className="navbar-start">
           <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost lg:hidden pl-0"
-            >
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden pl-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -92,10 +88,7 @@ const Header = () => {
               {navLinks}
             </ul>
           </div>
-          <Link
-            to={"/"}
-            className="text-black dark:text-white font-bold text-xl pl-0"
-          >
+          <Link to={"/"} className="text-black dark:text-white font-bold text-xl pl-0">
             AlphaReviews
           </Link>
         </div>
@@ -127,14 +120,14 @@ const Header = () => {
             <div className="text-black">
               <Link
                 to={"/login"}
-                className="text text-black font-medium hover:underline"
+                className="text text-black dark:text-white font-medium hover:underline"
               >
                 Login
               </Link>
-              <span className="px-1 text-black"> / </span>
+              <span className="px-1 text-black dark:text-dark-text"> / </span>
               <Link
                 to={"/register"}
-                className="text text-black font-medium hover:underline"
+                className="text text-black dark:text-white font-medium hover:underline"
               >
                 Register
               </Link>

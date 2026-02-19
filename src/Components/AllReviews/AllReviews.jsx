@@ -1,18 +1,18 @@
-import { Link, useLoaderData } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
 const AllReviews = () => {
   const reviews = useLoaderData() || [];
 
   const [filteredReviews, setFilteredReviews] = useState(reviews);
-  const [selectedGenre, setSelectedGenre] = useState('');
-  const [sortOption, setSortOption] = useState('');
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const [sortOption, setSortOption] = useState("");
 
   const genres = [...new Set(reviews.map((review) => review.genre))];
 
   const handleFilter = (genre) => {
     setSelectedGenre(genre);
-    if (genre === '') {
+    if (genre === "") {
       setFilteredReviews(reviews);
     } else {
       setFilteredReviews(reviews.filter((review) => review.genre === genre));
@@ -22,20 +22,20 @@ const AllReviews = () => {
   const handleSort = (option) => {
     setSortOption(option);
     const sortedReviews = [...filteredReviews];
-    if (option === 'rating-asc') {
+    if (option === "rating-asc") {
       sortedReviews.sort((a, b) => a.rating - b.rating);
-    } else if (option === 'rating-desc') {
+    } else if (option === "rating-desc") {
       sortedReviews.sort((a, b) => b.rating - a.rating);
-    } else if (option === 'year-asc') {
+    } else if (option === "year-asc") {
       sortedReviews.sort((a, b) => a.year - b.year);
-    } else if (option === 'year-desc') {
+    } else if (option === "year-desc") {
       sortedReviews.sort((a, b) => b.year - a.year);
     }
     setFilteredReviews(sortedReviews);
   };
 
   return (
-    <section className="section section-gap min-h-[60vh]">
+    <section className="section section-gap min-h-[60vh] dark:bg-bg-dark1">
       <div className="row">
         <div className="column">
           <h2 className="heading text-center">All Reviews</h2>
@@ -48,7 +48,12 @@ const AllReviews = () => {
           <label htmlFor="genre-filter" className="text mr-2 font-semibold">
             Genre:
           </label>
-          <select id="genre-filter" value={selectedGenre} onChange={(e) => handleFilter(e.target.value)} className="text p-2 border rounded">
+          <select
+            id="genre-filter"
+            value={selectedGenre}
+            onChange={(e) => handleFilter(e.target.value)}
+            className="text p-2 border rounded"
+          >
             <option value="">All Genres</option>
             {genres.map((genre, index) => (
               <option key={index} value={genre}>
@@ -63,7 +68,12 @@ const AllReviews = () => {
           <label htmlFor="sort-options" className="text mr-2 font-semibold">
             Sort by:
           </label>
-          <select id="sort-options" value={sortOption} onChange={(e) => handleSort(e.target.value)} className=" text p-2 border rounded">
+          <select
+            id="sort-options"
+            value={sortOption}
+            onChange={(e) => handleSort(e.target.value)}
+            className=" text p-2 border rounded"
+          >
             <option value="">None</option>
             <option value="rating-asc">Rating (Low to High)</option>
             <option value="rating-desc">Rating (High to Low)</option>
@@ -81,7 +91,10 @@ const AllReviews = () => {
             {filteredReviews.map((review) => {
               const { _id, coverImage, title, rating, genre, name } = review;
               return (
-                <div key={_id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                <div
+                  key={_id}
+                  className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                >
                   <img src={coverImage} alt={title} className="w-full h-48 object-cover" />
                   <div className="p-4">
                     <h3 className="text-xl font-semibold text-gray-900">{title}</h3>

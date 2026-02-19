@@ -32,9 +32,7 @@ const GameWatchList = () => {
           const reviews = await Promise.all(reviewPromises);
 
           // Only set the watchlist if reviews are not empty
-          const validReviews = reviews.filter(
-            (review) => review && Object.keys(review).length > 0,
-          );
+          const validReviews = reviews.filter((review) => review && Object.keys(review).length > 0);
           setWatchlist(validReviews);
         } else {
           setWatchlist([]);
@@ -66,9 +64,7 @@ const GameWatchList = () => {
 
       if (response.status === 200) {
         toast.success("Removed from watchlist!");
-        setWatchlist((prevWatchlist) =>
-          prevWatchlist.filter((review) => review._id !== reviewId),
-        );
+        setWatchlist((prevWatchlist) => prevWatchlist.filter((review) => review._id !== reviewId));
       } else {
         toast.error("Failed to remove from watchlist.");
       }
@@ -80,14 +76,14 @@ const GameWatchList = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[60vh]">
+      <div className="flex justify-center items-center min-h-[60vh] dark:bg-bg-dark1">
         <span className="loading loading-dots loading-lg"></span>
       </div>
     );
   }
 
   return (
-    <section className="section section-gap min-h-[60vh]">
+    <section className="section section-gap min-h-[60vh] dark:bg-bg-dark1">
       <div className="row">
         <div className="column">
           <h2 className="heading text-center">My Watchlist</h2>
@@ -112,24 +108,12 @@ const GameWatchList = () => {
             <tbody>
               {watchlist.map((review, index) => (
                 <tr key={review._id} className="hover:bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {index + 1}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {review.title}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {review.genre}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {review.name}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {review.rating}/5
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {review.year}
-                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{index + 1}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{review.title}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{review.genre}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{review.name}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{review.rating}/5</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">{review.year}</td>
                   <td className="border border-gray-300 px-4 py-2 text-center">
                     <div className="flex justify-center items-center gap-4">
                       <BsEyeFill

@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
-import axios from 'axios';
-import Swal from 'sweetalert2';
-import { toast } from 'react-toastify';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Context/AuthContext";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const EditReview = () => {
   const { user } = useContext(AuthContext);
@@ -12,14 +12,14 @@ const EditReview = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    coverImage: review?.coverImage || '',
-    title: review?.title || '',
-    rating: review?.rating || '',
-    year: review?.year || '',
-    genre: review?.genre || '',
-    description: review?.description || '',
-    name: user.displayName || '',
-    email: user.email || '',
+    coverImage: review?.coverImage || "",
+    title: review?.title || "",
+    rating: review?.rating || "",
+    year: review?.year || "",
+    genre: review?.genre || "",
+    description: review?.description || "",
+    name: user.displayName || "",
+    email: user.email || "",
   });
 
   const handleInputChange = (e) => {
@@ -37,7 +37,7 @@ const EditReview = () => {
 
     const photoRegex = /\.(jpeg|jpg|png|webp|avif)$/i;
     if (!photoRegex.test(coverImage)) {
-      toast.error('Please provide a valid Photo URL (jpg/jpeg/png/webp/avif)');
+      toast.error("Please provide a valid Photo URL (jpg/jpeg/png/webp/avif)");
       return;
     }
 
@@ -57,49 +57,49 @@ const EditReview = () => {
       // eslint-disable-next-line no-unused-vars
       const response = await axios.patch(`${serverURL}/reviews/${review._id}`, reviewData, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
       Swal.fire({
-        title: 'Success',
-        text: 'Review Updated Successfully!',
-        icon: 'success',
+        title: "Success",
+        text: "Review Updated Successfully!",
+        icon: "success",
       });
       navigate(-1);
     } catch (error) {
-      console.error('Error submitting review:', error);
+      console.error("Error submitting review:", error);
       Swal.fire({
-        title: 'Error',
-        text: 'Something went wrong',
-        icon: 'error',
+        title: "Error",
+        text: "Something went wrong",
+        icon: "error",
       });
     }
   };
 
   if (review?.email !== user?.email) {
     Swal.fire({
-      title: 'Error',
-      text: 'Permission Denied',
-      icon: 'error',
+      title: "Error",
+      text: "Permission Denied",
+      icon: "error",
     }).then(() => {
-      navigate('/');
+      navigate("/");
     });
 
     return;
   }
 
   return (
-    <section className="section py-[30px] md:py-[45px] lg:py-[60px]">
+    <section className="section py-[30px] md:py-[45px] lg:py-[60px] dark:bg-bg-dark1">
       <div className="row">
         <div className="column ">
           <h2 className="heading text-center">Edit Review</h2>
           <form
             onSubmit={handleUpdate}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-0 bg-bg-color shadow-2xl rounded-lg p-4 md:p-10 w-full"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-0 bg-bg-color dark:bg-bg-dark2 shadow-2xl rounded-lg p-4 md:p-10 w-full"
           >
             {/* Game Cover Image */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Game Cover Image (URL)</span>
+              <span className="font-medium text-text-color dark:text-white">Game Cover Image (URL)</span>
               <input
                 type="text"
                 name="coverImage"
@@ -113,7 +113,7 @@ const EditReview = () => {
 
             {/* Game Title */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Game Title</span>
+              <span className="font-medium text-text-color dark:text-white">Game Title</span>
               <input
                 type="text"
                 name="title"
@@ -127,7 +127,7 @@ const EditReview = () => {
 
             {/* Rating */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Rating (1-5)</span>
+              <span className="font-medium text-text-color dark:text-white">Rating (1-5)</span>
               <input
                 type="number"
                 name="rating"
@@ -143,7 +143,7 @@ const EditReview = () => {
 
             {/* Publishing Year */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Publishing Year</span>
+              <span className="font-medium text-text-color dark:text-white">Publishing Year</span>
               <input
                 type="number"
                 name="year"
@@ -157,7 +157,7 @@ const EditReview = () => {
 
             {/* Genres */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Genre</span>
+              <span className="font-medium text-text-color dark:text-white">Genre</span>
               <select
                 name="genre"
                 value={formData.genre}
@@ -178,7 +178,7 @@ const EditReview = () => {
 
             {/* User Email */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">User Email</span>
+              <span className="font-medium text-text-color dark:text-white">User Email</span>
               <input
                 type="email"
                 name="email"
@@ -190,7 +190,7 @@ const EditReview = () => {
 
             {/* User Name */}
             <label className="flex flex-col space-y-1">
-              <span className="font-medium text-text-color">User Name</span>
+              <span className="font-medium text-text-color dark:text-white">User Name</span>
               <input
                 type="text"
                 name="name"
@@ -202,7 +202,7 @@ const EditReview = () => {
 
             {/* Review Description */}
             <label className="col-span-full flex flex-col space-y-1">
-              <span className="font-medium text-text-color">Review Description</span>
+              <span className="font-medium text-text-color dark:text-white">Review Description</span>
               <textarea
                 name="description"
                 value={formData.description}
