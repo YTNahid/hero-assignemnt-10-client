@@ -18,7 +18,7 @@ const HighestRatedGames = () => {
             {reviews.map((review) => {
               const { _id, coverImage, title, rating, genre, name } = review;
               return (
-                <div key={_id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow border border-[#dddddd]">
+                <div key={_id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow border bordr-[#dddddd]">
                   <img src={coverImage} alt={title} className="w-full h-48 object-cover" />
                   <div className="p-4">
                     <h3 className="text-l font-semibold text-gray-900 mb-1">{title}</h3>

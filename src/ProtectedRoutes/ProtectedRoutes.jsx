@@ -1,7 +1,7 @@
-import { PropTypes } from 'prop-types';
-import { useContext } from 'react';
-import { AuthContext } from '../Context/AuthContext';
-import { Navigate, useLocation } from 'react-router-dom';
+import PropTypes from "prop-types";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
     return children;
   }
 
-  return <Navigate state={location.pathname} to={'/login'}></Navigate>;
+  return <Navigate state={location.pathname} to={"/login"}></Navigate>;
 };
 
 ProtectedRoute.propTypes = {
