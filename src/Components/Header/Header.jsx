@@ -60,7 +60,7 @@ const Header = () => {
 
   return (
     <header
-      className={`section sticky top-0 shadow-md bg-primary-color z-50 gap-0 py-2`}
+      className={`section sticky top-0 shadow-md bg-primary-color dark:bg-black z-50 gap-0 py-2`}
     >
       <div className="row exclude navbar">
         <div className="navbar-start">

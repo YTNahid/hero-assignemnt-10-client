@@ -11,6 +11,8 @@ export default {
         'border-color': '#dddddd',
         'bg-color': '#BFAFA0',
         'accent-color': '#BFAFA0',
+        'bg-dark1': '#000000',
+        'bg-dark2': '#161B22'
       },
       fontFamily: {
         manrope: ['Sora', 'sans-serif'],

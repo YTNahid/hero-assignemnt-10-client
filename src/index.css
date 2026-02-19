@@ -17,6 +17,14 @@
   --primary-font: 'Sora', sans-serif;
 }
 
+/* Dark Mode */
+.dark {
+  --heading-color: #ffffff;
+  --text-color: #8b949e;
+  --border-color: #dddddd;
+  --bg-color: #161B22;
+}
+
 /* Global CSS Style
 ========================================================================== */
 * {
